@@ -5,7 +5,7 @@
  */
 
 
-var sumofArray = function(arr) {
+var sumOfArray = function(arr) {
     var total = 0
     var index = 0
     while (index < arr.length) {
@@ -27,21 +27,22 @@ console.assert(sumOfArray([10, 9, 8]) === 27);
 // Write a function maxOfArray() that takes an array of
 // numbers as an argument and finds the highest number.
 
-var maxOfArray = function(arr) {
-    var total = 0
-    var index = 0
-    while (index < arr.length) {
-        var el = arr[index]
-        total = total + el
-        index = index + 1
-        } return total
+var maxOfArray = function(arry) {
+	var max = -9999999999
+	for (var i=0; i<arry.length; i++) {
+	    if (arry[i] > max) {
+          max = arry[i]
+        }
+    }
+    return max 
+    
+}
 
- }
-   
+
 
 console.assert(maxOfArray([2,4,3]) === 4)
 console.assert(maxOfArray([10,9,8,100,7,6]) === 100)
-console.assert(isNan(maxOfArray([1,2,'bucklemyshoe']))
+console.assert(isNaN(maxOfArray([1,2,'bucklemyshoe'])))
 
 /**
  * PART 2
@@ -51,12 +52,16 @@ console.assert(isNan(maxOfArray([1,2,'bucklemyshoe']))
  */
 
 function isVowel(symbol){
-    // YOUR CODE HERE
-    if (symbol = "a"|| or symbol = "e"|| or symbol = "i"|| or symbol = "o"|| or symbol = 
+
+    var input = (symbol.toLowerCase) 
+
+    if (input === "a"|| input === "e"|| input === "i"|| input === "o"|| input === 
     	"u") {
-    	return true
+    	
     }
+    return true
 }
+    
 
 console.assert(isVowel(0) === false);
 console.assert(isVowel("B") === false);
@@ -74,21 +79,15 @@ console.assert(isVowel("E") === true);
  */
 
 
-
-reset()
-
-var reverseString = function(old) {
+var reverse = function(old) {
   var newString = ""
-for (var i = old.length - 1; i>=0; i --) {
-    var letter = old[i]
-    newString = newString + letter
-}
+	for (var i = old.length - 1; i>=0; i --) {
+    	var letter = old[i]
+    	newString = newString + letter
+	}
 	return newString
 }
-
     
-    
-
 console.assert(reverse("books") === "skoob")
 console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew")
 
@@ -103,6 +102,26 @@ console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew
  * - for every number that is a multiple of 3 and 5, return "fizzbuzz"
  */
 
+
+var fizzbuzz = function(num1) {
+    var outputString = ""
+	for (var n = 1; n <= num1; n++) {
+if (n % 3 !== 0 && n % 5 !== 0 ) {
+ outputString = outputString + "."
+}
+if (n % 3 === 0 && n % 5 !== 0 ) {
+outputString = outputString + "fizz"
+}
+if (n % 3 !== 0 && n % 5 === 0 ) {   
+outputString = outputString + "buzz"
+}
+if (n % 3 === 0 && n % 5 === 0 ) {	
+outputString = outputString + "fizzbuzz"
+		}
+    
+    }
+    return outputString
+}
 
 
 console.assert(fizzbuzz(1) === ".")
@@ -119,8 +138,44 @@ console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz")
  * i.e. findLongestWord("a book full of dogs") should return "book"
  */
 
+     
+var contains = function(sequence, element) {
+   for (var i =0; i <= sequence.length; i++){
+        if (element === sequence[i]) {
+            return true 
+        }
+   }
+    return false
+}
+
+
+var alphabet = "abcdefghijklmnopqrstuvwxyz1234567890 "  
+    
+var stripPunct = function(inputString) {
+     var newString = ""
+    for (var i=0; i < inputString.length; i++) {
+	var char = inputString[i]
+    	var caseInsensitiveChar = char.toLowerCase() 
+    if (contains(alphabet,caseInsensitiveChar)) {
+	     newString = newString + char 
+		 return newString
+		}
+	}
+}
+        
+
 function findLongestWord(sentence){
-    // YOUR CODE HERE
+    var arr = sentence.split(" ")
+    var newString = ""
+    for (var i = 0; i <arr.length; i++) {
+       var word = arr[i]
+       var cleanWord = stripPunct(word)
+
+     	if (word.length >= 4) {
+		newString = newString + " " + word
+	}
+    return newString   
+    }
 }
 
 console.assert(findLongestWord("a book full of dogs") === "book")
@@ -134,6 +189,23 @@ console.assert(findLongestWord("don't mess with Texas") === "Texas")
  * write a function that returns the Greatest Common Denominator of two numbers
  * - if no GCD exists, return 1
  */
+
+
+var GCD = function(num1, num2) {
+ var array = []
+ var divisorA = num1
+ 
+ if(num2 < num1 ) {
+     divisorA = num2
+     
+ }
+    for (var i = divisorA; i >= 1; i--) {
+        if (num1 % i === 0 && num2 % i === 0){
+            return i 
+        }
+    }
+}
+
 
 
 
