@@ -1,0 +1,46 @@
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  background-color: light-blue;
+
+}
+
+input[type="text"] {
+    width: 100px;
+    display: block;
+    margin: 30px auto;
+    border: 1px solid black;
+}
+
+#container {
+    display: inline-block;
+    width: 100%;
+}
+
+#mainCell {
+    display: inline-block;
+    width: 20%;
+    height: 10%;
+    border: 1px solid black;
+}
+
+#cell {
+    width: 100%;
+    display: block;
+    border: 1px solid black;
+
+}
+body{
+  font-family: 'Palatino';
+}
+
+
+
+img {
+  width: 50px;
+  height: 50px;
+
+}
